@@ -1,0 +1,38 @@
+{
+  "name": "mobility-mcp-africa",
+  "version": "1.0.0",
+  "description": "Africa's first open-standard MCP server for ride-hailing. Enables AI agents to search, book, and manage rides via the Model Context Protocol.",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "inspect": "npx @modelcontextprotocol/inspector npx tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "ride-hailing",
+    "africa",
+    "nigeria",
+    "ai-agent",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "axios": "^1.13.5",
+    "dotenv": "^17.3.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
