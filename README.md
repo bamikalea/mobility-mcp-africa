@@ -8,10 +8,10 @@ The travel industry is shifting to AI agent-based booking. Google, Booking.com, 
 
 **No ride-hailing provider in Africa currently has an MCP-compatible API.** This project changes that by providing:
 
-1. A **generic provider interface** that any ride-hailing company can implement
+1. A **generic provider interface** that any ride-hailing service (Bolt, Uber, InDrive, local operators, etc.) can implement
 2. A **working MCP server** with tools for searching, booking, tracking, and cancelling rides
 3. A **mock provider** with realistic Nigerian data for development and demos
-4. A **Zeno provider** as the first real integration
+4. A **live provider** template for connecting to any ride-hailing service's REST API
 
 ## Architecture
 
@@ -28,7 +28,7 @@ AI Agent (Claude, GPT, Gemini, etc.)
 |                           |
 |  Provider Abstraction     |
 |  ├── MockProvider (dev)   |
-|  ├── ZenoProvider (live)  |
+|  ├── LiveProvider (prod)  |
 |  └── YourProvider (add!)  |
 +---------------------------+
         |
@@ -42,7 +42,7 @@ AI Agent (Claude, GPT, Gemini, etc.)
 ### Install
 
 ```bash
-git clone https://github.com/your-org/mobility-mcp-africa.git
+git clone https://github.com/bamikalea/mobility-mcp-africa.git
 cd mobility-mcp-africa
 npm install
 ```
@@ -108,13 +108,13 @@ Restart Claude Desktop. You can now ask: *"Find me a ride from the airport to Vi
 
 | Env Variable | Default | Description |
 |-------------|---------|-------------|
-| `PROVIDER` | `mock` | Provider to use: `mock` or `zeno` |
-| `ZENO_API_KEY` | — | API key for Zeno (required when PROVIDER=zeno) |
-| `ZENO_BASE_URL` | `https://api.zeno.ng/v1` | Zeno API base URL |
+| `PROVIDER` | `mock` | Provider to use: `mock` or `live` |
+| `RIDEHAILING_API_KEY` | — | API key for the ride-hailing provider (required when PROVIDER=live) |
+| `RIDEHAILING_BASE_URL` | — | Base URL of the ride-hailing provider's REST API |
 
 ## Adding a New Provider
 
-Any ride-hailing company can integrate by implementing the `RideHailingProvider` interface. See [docs/ADDING_A_PROVIDER.md](docs/ADDING_A_PROVIDER.md) for a step-by-step guide.
+A "provider" is a ride-hailing service — companies like Bolt, Uber, InDrive, or any local ride-hailing operator. Any ride-hailing service can integrate by implementing the `RideHailingProvider` interface. See [docs/ADDING_A_PROVIDER.md](docs/ADDING_A_PROVIDER.md) for a step-by-step guide.
 
 ## Testing
 
@@ -144,10 +144,6 @@ npm run build
 - Lagos, Nigeria
 - Abuja, Nigeria
 - More coming soon
-
-## Related Projects
-
-- [TripAgentic](../tripagentic/) — The WhatsApp-first AI agent that uses this MCP server to book rides, with proactive status updates, voice notes, and multi-LLM support.
 
 ## Contributing
 

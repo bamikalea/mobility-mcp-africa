@@ -6,7 +6,7 @@ import type { Config } from "../src/config.js";
 
 const MOCK_CONFIG: Config = {
   provider: "mock",
-  zeno: { apiKey: "", baseUrl: "" },
+  live: { apiKey: "", baseUrl: "" },
 };
 
 describe("MCP Server", () => {

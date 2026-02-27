@@ -1,6 +1,6 @@
 # API Specification for Ride-Hailing Providers
 
-This document specifies the REST API endpoints a ride-hailing provider needs to build for MCP integration. By implementing these endpoints, your service becomes accessible to any AI travel agent (ChatGPT, Claude, Gemini, etc.).
+This document specifies the REST API endpoints a ride-hailing provider needs to build for MCP integration. By implementing these endpoints, your service becomes accessible to any AI travel agent via MCP.
 
 ## Technical Requirements
 

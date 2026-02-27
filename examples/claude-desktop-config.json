@@ -4,8 +4,7 @@
       "command": "npx",
       "args": ["tsx", "/absolute/path/to/mobility-mcp-africa/src/index.ts"],
       "env": {
-        "PROVIDER": "mock",
-        "ZENO_API_KEY": "test_key"
+        "PROVIDER": "mock"
       }
     }
   }

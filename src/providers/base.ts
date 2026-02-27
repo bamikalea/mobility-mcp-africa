@@ -62,7 +62,7 @@ export interface AddStopParams {
  * Any ride-hailing company in Africa can implement this interface
  * to make their service accessible to AI agents via MCP.
  *
- * Zeno is the first implementation. To add a new provider:
+ * To add a new provider:
  * 1. Create a new file in src/providers/ (e.g., bolt.ts)
  * 2. Implement the RideHailingProvider interface
  * 3. Register it in src/providers/index.ts

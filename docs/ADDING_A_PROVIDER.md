@@ -87,8 +87,8 @@ export function createProvider(config: Config): RideHailingProvider {
   switch (config.provider) {
     case "mock":
       return new MockProvider();
-    case "zeno":
-      return new ZenoProvider(config.zeno.baseUrl, config.zeno.apiKey);
+    case "live":
+      return new LiveProvider(config.live.baseUrl, config.live.apiKey);
     case "yourprovider":
       return new YourProvider(config.yourprovider.baseUrl, config.yourprovider.apiKey);
     default:

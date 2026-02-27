@@ -21,8 +21,8 @@ import type {
   TripShareInfo,
 } from "../schemas.js";
 
-export class ZenoProvider implements RideHailingProvider {
-  readonly name = "zeno";
+export class LiveProvider implements RideHailingProvider {
+  readonly name = "live";
   readonly supportedCities = ["lagos", "abuja"];
 
   private client: AxiosInstance;
@@ -57,8 +57,8 @@ export class ZenoProvider implements RideHailingProvider {
         (ride: Record<string, unknown>, index: number) => {
           const rideAny = ride as Record<string, any>;
           return {
-            ride_option_id: `zeno-${rideAny.ride_type}-${index}`,
-            provider: "zeno",
+            ride_option_id: `live-${rideAny.ride_type}-${index}`,
+            provider: "live",
             ride_type: rideAny.ride_type,
             vehicle_description: rideAny.vehicle_description,
             estimated_fare: {
@@ -86,7 +86,7 @@ export class ZenoProvider implements RideHailingProvider {
         longitude: params.dropoff_longitude,
         address: data.dropoff_address,
       },
-      provider_name: "zeno",
+      provider_name: "live",
       timestamp: data.generated_at ?? new Date().toISOString(),
     };
   }
@@ -260,8 +260,7 @@ export class ZenoProvider implements RideHailingProvider {
   }
 
   async getPricingInfo(): Promise<PricingInfo> {
-    // Zeno API doesn't have a dedicated pricing endpoint,
-    // so we return a general structure
+    // Return a general pricing structure
     return {
       currency: "NGN",
       pricing_model:
